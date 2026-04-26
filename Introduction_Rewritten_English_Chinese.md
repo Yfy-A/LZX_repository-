@@ -68,33 +68,31 @@
 
 ## 1 Introduction
 
-The stock market serves as an indispensable core component of the modern economic system, yet its inherent volatility and associated risk characteristics pose significant implications for investors, enterprises, and macroeconomic stability [1]. Among the various risks confronting market participants, deliberate market manipulation represents a particularly insidious threat. Stock price manipulation has been documented as a pervasive phenomenon in both mature and emerging capital markets worldwide [2, 3], undermining the fundamental principles of fair and efficient price discovery.
+The stock market is a core component of the modern economic system, yet its volatility poses significant risks to investors, enterprises, and macroeconomic stability [1]. Among these risks, deliberate market manipulation represents a particularly insidious threat, undermining fair and efficient price discovery in both mature and emerging markets worldwide [2, 3].
 
-Since the foundational work of Allen and Gale [4], who established a theoretical framework for understanding stock price manipulation, researchers have recognized three distinct categories of manipulative behavior: action-based, information-based, and transaction-based manipulation. Among these typologies, transaction-based manipulation has proven most prevalent and challenging to detect and eliminate through regulatory oversight. The extensive body of empirical research has demonstrated that manipulative trading activities distort price signals, harm investor welfare, and erode overall market confidence and efficiency [5, 6, 7]. These findings underscore the critical importance of developing robust early warning systems capable of detecting anomalous price dynamics and potential manipulation in real time.
+Since Allen and Gale's [4] foundational framework, researchers have identified three manipulation categories: action-based, information-based, and transaction-based. Transaction-based manipulation is the most prevalent and difficult to detect through regulatory oversight. Extensive empirical research shows that manipulative trading distorts price signals, harms investor welfare, and erodes market confidence [5, 6, 7], underscoring the importance of developing robust early warning systems for real-time detection.
 
-Traditional approaches to stock risk assessment have relied primarily on linear probabilistic models. The pioneering FR model proposed by Frankel and Rose offered a tractable framework for crisis prediction, while the subsequent KLR model introduced threshold-based indicators for assessing financial contagion risks. Despite their practical utility, these classical models suffer from significant limitations. The FR model's requirement for triple estimation introduces substantial uncertainty in risk assessment, while the KLR model exhibits excessive sensitivity to threshold specifications, potentially generating unreliable early warning signals. Efforts to address these shortcomings have led to the development of alternative approaches, including the STV cross-sectional regression model and various Markov transition frameworks.
+Traditional stock risk assessment relies primarily on linear probabilistic models. The FR model offered a tractable crisis prediction framework, while the KLR model introduced threshold-based financial contagion indicators. However, these classical models suffer from significant limitations: the FR model's triple estimation requirement introduces substantial uncertainty, while the KLR model exhibits excessive threshold sensitivity. Alternative approaches, including STV cross-sectional regression and Markov transition frameworks, have been developed to address these shortcomings.
 
-However, a fundamental limitation of traditional early warning models lies in their linear structure, which proves inadequate for capturing the inherently nonlinear dynamics of stock market data. The complexity and multifractal nature of financial markets [26] demand more sophisticated analytical tools capable of modeling nonlinear relationships and complex dependencies. This recognition has sparked considerable interest in machine learning and deep learning methodologies, which have demonstrated remarkable efficacy in handling nonlinear patterns and high-dimensional data structures.
+A fundamental limitation of traditional models lies in their linear structure, which inadequately captures the nonlinear dynamics of stock markets. The complexity and multifractal nature of financial markets [26] demand more sophisticated tools for modeling nonlinear relationships. This has sparked interest in machine learning and deep learning methodologies, which demonstrate remarkable efficacy in handling nonlinear patterns and high-dimensional data.
 
-Recent advances in machine learning have revolutionized financial econometrics and risk management. Avramov et al. [17] provide compelling evidence that machine learning approaches can outperform traditional economic restrictions in stock return predictability, particularly when flexible functional forms are permitted. The application of machine learning techniques to the Chinese stock market by Leippold et al. [19] has yielded promising results, demonstrating that these methods can effectively capture market-specific patterns and dynamics. Furthermore, deep learning architectures have shown substantial promise in asset pricing applications, as evidenced by Chen and Pelger's [20] comprehensive analysis of neural network models for pricing complex financial instruments. Recent developments in deep fundamental factor models [27] and neural network applications for derivatives pricing [28] have further expanded the frontier of machine learning in finance.
+Recent machine learning advances have revolutionized financial econometrics. Avramov et al. [17] show that machine learning can outperform traditional restrictions in stock return predictability when flexible functional forms are permitted. Leippold et al. [19] demonstrate effective market-specific pattern capture in Chinese markets, while Chen and Pelger [20] provide comprehensive analysis of deep learning in asset pricing. Studies on bond risk premiums [16, 18], momentum strategies [21, 24], and anomaly correlations [22] reveal complex patterns that linear models fail to capture. Research on liquidity dynamics [23] and developments in deep factor models [27] and neural network applications [28] have further expanded machine learning's role in finance.
 
-The integration of machine learning with traditional finance has also enhanced our understanding of market microstructure and anomaly detection. Studies on bond risk premiums [16, 18] have demonstrated that machine learning can effectively incorporate nonlinear interactions between risk factors, while research on momentum strategies [21, 24] and anomaly correlations [22] has revealed complex patterns that traditional linear models fail to capture. Moreover, investigations into liquidity dynamics and order imbalance [23] have highlighted the importance of modeling high-frequency market microstructure using flexible machine learning frameworks.
+Despite these advances, machine learning-based systems face two critical challenges. First, models trained on historical data may struggle to adapt to regime shifts or structural breaks. Second, the "black box" nature of complex algorithms limits interpretability for regulatory supervision. Lack of transparency can lead to excessive false alarms or missed detection of genuine threats.
 
-Despite these advances, machine learning-based early warning systems face two critical challenges. First, these models are inherently static, trained on historical data and potentially unable to adapt rapidly to regime shifts or structural breaks in market dynamics. Second, the "black box" nature of complex machine learning algorithms limits their interpretability and practical utility for regulatory supervision. When models lack transparency in their decision-making processes, regulators and market participants struggle to understand and validate the underlying risk signals, potentially leading to either excessive false alarms or missed detection of genuine threats.
+This paper addresses these limitations by developing a dynamic early warning mechanism grounded in chaos theory and fractal geometry. We recognize that stock prices can be conceptualized as complex dynamical systems. When abnormal changes occur—due to manipulation, shocks, or instabilities—their intrinsic geometric properties transform. Fractal dimension, as a fundamental invariant of chaotic attractors, provides rigorous characterization of these properties.
 
-This paper addresses these limitations by developing a dynamic risk early warning mechanism grounded in chaos theory and fractal geometry. Our approach recognizes that stock price curves can be conceptualized as complex dynamical systems. When such systems undergo abnormal changes—whether due to manipulation, external shocks, or endogenous instabilities—their intrinsic geometric and dynamical properties necessarily transform. Fractal dimension, as a fundamental invariant of chaotic attractors, provides a mathematically rigorous characterization of these intrinsic properties.
+Empirical research has established the chaotic and fractal characteristics of financial time series. Studies have revealed strange attractors in monetary aggregates and confirmed fractal structures in Chinese equity markets using R/S analysis. Recent multifractal analyses [26] reveal scale-invariant market properties, while entropy and volatility studies [25] deepen our understanding of information dynamics.
 
-Extensive empirical research has established the chaotic and fractal characteristics of financial time series. The pioneering work of Barnett and Chen revealed low-dimensional strange attractors in U.S. monetary aggregates, demonstrating that seemingly complex economic dynamics can emerge from deterministic nonlinear systems. Subsequent studies have confirmed the presence of fractal structures in major Chinese equity markets using R/S analysis and other nonlinear diagnostic tools. More recently, comprehensive multifractal analyses [26] have revealed the scale-invariant properties of financial markets, while investigations into entropy and volatility interdependencies [25] have deepened our understanding of information dynamics across global markets.
+The correlation dimension, introduced by Grassberger and Procaccia [10], is particularly valuable for characterizing chaotic dynamics. This metric quantifies attractor complexity and exhibits high sensitivity to temporal evolution. Unlike conventional measures, it detects subtle changes by characterizing perturbation propagation over time. Recent methodological advances [26] have refined estimation precision and robustness.
 
-The correlation dimension, introduced by Grassberger and Procaccia [10], serves as a particularly valuable tool for characterizing chaotic dynamics. This metric quantifies the dimensional complexity of a strange attractor and exhibits high sensitivity to temporal evolution of system behavior. Unlike conventional statistical measures, the correlation dimension can detect subtle changes in the underlying dynamics by characterizing how local perturbations propagate through the system over time. Recent methodological advances [26] have refined our ability to estimate correlation dimensions and other fractal measures with greater precision and robustness.
+Departing from static analyses, we introduce a time-varying correlation dimension function D(t) that tracks system complexity evolution along a rolling window. This allows continuous monitoring of stock price behavior. We use first-order difference ΔD(t) and second-order difference Δ²D(t) as early warning indicators, substituting for derivatives given D(t)'s non-differentiability. These discrete operators capture the rate and acceleration of complexity changes, providing sensitive signals for anomalous behavior detection.
 
-Departing from previous static analyses, we introduce a time-varying correlation dimension function D(t) that tracks the evolution of system complexity along a rolling time window. This innovation allows us to monitor dynamic changes in stock price behavior continuously. We utilize the first-order difference ΔD(t) and second-order difference Δ²D(t) of this function as early warning indicators, substituting for derivatives due to the non-differentiability of D(t) at numerous points. These discrete difference operators capture the rate and acceleration of changes in system complexity, providing sensitive signals for detecting anomalous market behavior.
+Our methodology employs empirical mode decomposition (EMD) [8]—refined through complete ensemble EMD (CEEMD) as demonstrated by Gu et al. [14]—to filter noise from stock prices. Among intrinsic mode functions (IMFs) generated, we remove the highest-frequency component as noise, verified through correlation analysis. For filtered series, we apply phase space reconstruction [9] and estimate correlation dimensions using established algorithms [11, 12], with attention to scale-free interval identification [13].
 
-Our methodology employs the empirical mode decomposition (EMD) technique [8]—further refined through complete ensemble EMD (CEEMD) as demonstrated by Gu et al. [14] in exchange rate forecasting—to filter noise from stock price series. Among the intrinsic mode functions (IMFs) generated by decomposition, we remove the highest-frequency component as noise, verified through correlation coefficient analysis. For the filtered series, we apply phase space reconstruction [9] and estimate correlation dimensions using established algorithms [11, 12], with careful attention to scale-free interval identification [13].
+We validate our mechanism through empirical analysis using Shanghai and Shenzhen stock market data. In judicially confirmed manipulation cases, both ΔD(t) and Δ²D(t) indicators exhibit pronounced anomalous fluctuations coinciding with manipulation events. Given the difficulty of real-time transaction-based manipulation detection, these results suggest substantial value for regulatory surveillance. We also demonstrate generalizability by applying our approach to RMB/USD exchange rates, confirming effectiveness across different markets.
 
-We validate our early warning mechanism through comprehensive empirical analysis using real trading data from Shanghai and Shenzhen stock markets. Particularly noteworthy is our analysis of judicially confirmed manipulation cases, where both ΔD(t) and Δ²D(t) indicators exhibit pronounced anomalous fluctuations coinciding with manipulation events. Given the notorious difficulty of detecting transaction-based manipulation in real time, these results suggest substantial practical value for regulatory surveillance. Furthermore, we demonstrate the generalizability of our approach by successfully applying it to RMB/USD exchange rate dynamics, confirming its effectiveness across different financial markets.
-
-This paper is organized as follows: Section 2 presents the design principles and core algorithms underlying our early warning mechanism; Section 3 provides detailed empirical analysis and results; Section 4 offers concluding remarks and discusses implications for financial regulation and risk management.
+The paper is organized as follows: Section 2 presents design principles and core algorithms; Section 3 provides empirical analysis and results; Section 4 offers conclusions and discusses implications for financial regulation and risk management.
 
 ---
 
@@ -102,33 +100,31 @@ This paper is organized as follows: Section 2 presents the design principles and
 
 ## 1 引言
 
-股票市场作为现代经济体系不可或缺的核心组成部分，其固有的波动性和风险特征对投资者、企业乃至宏观经济稳定产生深远影响[1]。在市场参与者面临的各类风险中，蓄意市场操纵尤为隐蔽且危害严重。股价操纵已被证实是全球范围内成熟和新兴资本市场普遍存在的现象[2, 3]，严重破坏了公平有效的价格发现机制。
+股票市场是现代经济体系的核心组成部分，但其波动性对投资者、企业和宏观经济稳定构成重大风险[1]。在这些风险中，蓄意市场操纵尤为隐蔽，它破坏了全球成熟和新兴市场的公平有效价格发现机制[2, 3]。
 
-自Allen和Gale[4]奠定股价操纵理论框架以来，研究者已识别出三类不同的操纵行为：行为型、信息型和交易型操纵。在这些类型中，交易型操纵最为普遍且通过监管手段最难检测和消除。大量实证研究表明，操纵性交易活动扭曲价格信号、损害投资者利益，并侵蚀市场整体信心和效率[5, 6, 7]。这些发现凸显了开发能够实时检测异常价格动态和潜在操纵行为的鲁棒预警系统的重要性。
+自Allen和Gale[4]提出基础框架以来，研究者已识别出三类操纵行为：行为型、信息型和交易型。交易型操纵最为普遍且最难通过监管手段检测。大量实证研究表明，操纵性交易扭曲价格信号、损害投资者利益并侵蚀市场信心[5, 6, 7]，这凸显了开发实时检测鲁棒预警系统的重要性。
 
-传统的股票风险评估方法主要依赖线性概率模型。Frankel和Rose提出的开创性FR模型为危机预测提供了可操作的框架，而后续的KLR模型引入了基于阈值的指标来评估金融传染风险。尽管这些经典模型具有实用价值，但存在显著局限性。FR模型对三重估计的要求在风险评估中引入了大量不确定性，而KLR模型对阈值设定表现出过度敏感性，可能产生不可靠的预警信号。为克服这些不足，研究者开发了替代方法，包括STV横截面回归模型和各种马尔可夫转换框架。
+传统股票风险评估主要依赖线性概率模型。FR模型提供了可操作的危机预测框架，而KLR模型引入了基于阈值的金融传染指标。然而，这些经典模型存在显著局限：FR模型的三重估计要求引入大量不确定性，而KLR模型对阈值过度敏感。为解决这些不足，研究者开发了替代方法，包括STV横截面回归和马尔可夫转换框架。
 
-然而，传统预警模型的根本局限在于其线性结构，这对于捕捉股市数据固有的非线性动力学而言力不从心。金融市场的复杂性和多重分形特征[26]要求更精密的分析工具来建模非线性关系和复杂依赖性。这一认识引发了对机器学习和深度学习方法论的广泛关注，这些方法在处理非线性模式和高维数据结构方面展现出卓越效能。
+传统模型的根本局限在于其线性结构，无法充分捕捉股市的非线性动力学。金融市场的复杂性和多重分形特征[26]要求更精密的工具来建模非线性关系。这促使了对机器学习和深度学习方法的广泛关注，这些方法在处理非线性模式和高维数据方面表现出色。
 
-近年来，机器学习的进展彻底革新了金融计量学和风险管理。Avramov等[17]提供了令人信服的证据，表明机器学习方法在股票收益可预测性方面能够超越传统经济约束，特别是在允许灵活函数形式时。Leippold等[19]将机器学习技术应用于中国股市的研究产生了积极成果，证明这些方法能有效捕捉市场特定的模式和动态。此外，深度学习架构在资产定价应用中显示出巨大潜力，Chen和Pelger[20]对神经网络模型定价复杂金融工具的综合分析证明了这一点。深度基本面因子模型[27]和神经网络在衍生品定价中的应用[28]进一步拓展了机器学习在金融领域的前沿。
+近年来，机器学习进展彻底革新了金融计量学。Avramov等[17]表明，当允许灵活函数形式时，机器学习在股票收益可预测性方面可超越传统约束。Leippold等[19]证明了其在中国市场有效捕捉特定模式的能力，而Chen和Pelger[20]提供了深度学习在资产定价中的全面分析。关于债券风险溢价[16, 18]、动量策略[21, 24]和异常相关性[22]的研究揭示了线性模型无法捕捉的复杂模式。流动性动态研究[23]以及深度因子模型[27]和神经网络应用[28]的进展进一步拓展了机器学习在金融领域的作用。
 
-机器学习与传统金融的融合还增强了我们对市场微观结构和异常检测的理解。关于债券风险溢价的研究[16, 18]表明，机器学习能有效整合风险因子间的非线性交互作用，而关于动量策略[21, 24]和异常相关性[22]的研究揭示了传统线性模型无法捕捉的复杂模式。此外，对流动性动态和订单失衡的调查[23]强调了使用灵活的机器学习框架建模高频市场微观结构的重要性。
+尽管取得这些进展，基于机器学习的系统仍面临两大挑战。首先，在历史数据上训练的模型可能难以适应制度转换或结构突变。其次，复杂算法的"黑箱"特性限制了监管监督的可解释性。缺乏透明度可能导致过多误报或漏检真实威胁。
 
-尽管取得这些进展，基于机器学习的预警系统仍面临两个关键挑战。首先，这些模型本质上是静态的，在历史数据上训练而可能无法快速适应市场动态中的制度转换或结构性突变。其次，复杂机器学习算法的"黑箱"特性限制了其可解释性和在监管监督中的实用性。当模型在决策过程中缺乏透明度时，监管者和市场参与者难以理解和验证潜在的风险信号，可能导致过多误报或漏检真实威胁。
+本文通过开发一种基于混沌理论和分形几何的动态预警机制来解决这些局限。我们认识到，股价可被概念化为复杂动力系统。当发生异常变化时——无论由于操纵、冲击还是不稳定性——其内在几何性质会发生转变。分形维数作为混沌吸引子的基本不变量，提供了这些性质的严格刻画。
 
-本文通过开发一种基于混沌理论和分形几何的动态风险预警机制来解决这些局限。我们的方法认识到，股价曲线可被概念化为复杂的动力系统。当此类系统经历异常变化时——无论是由于操纵、外部冲击还是内生不稳定性——其内在的几何和动力学性质必然发生转变。分形维数作为混沌吸引子的基本不变量，提供了这些内在性质的数学严格刻画。
+实证研究已确立了金融时间序列的混沌和分形特征。研究揭示了货币总量中的奇异吸引子，并使用R/S分析证实了中国股市中的分形结构。最近的多重分形分析[26]揭示了市场的尺度不变性质，而熵和波动率研究[25]深化了我们对信息动态的理解。
 
-大量实证研究已确立了金融时间序列的混沌和分形特征。Barnett和Chen的开创性工作揭示了美国货币总量中的低维奇异吸引子，表明看似复杂的经济动态可从确定性非线性系统中涌现。后续研究使用R/S分析和其他非线性诊断工具证实了中国主要股市中存在分形结构。最近，全面的多重分形分析[26]揭示了金融市场的尺度不变性质，而关于熵和波动率相互依赖性的研究[25]深化了我们对全球市场信息动态的理解。
+Grassberger和Procaccia[10]引入的关联维数在刻画混沌动力学方面特别有价值。该指标量化吸引子复杂性并对时间演化高度敏感。与传统度量不同，它通过刻画扰动随时间的传播来检测微妙变化。最近的方法论进展[26]提高了估计精度和鲁棒性。
 
-由Grassberger和Procaccia[10]引入的关联维数，作为刻画混沌动力学的特别有价值的工具。该指标量化奇异吸引子的维数复杂性，并对系统行为的时间演化表现出高度敏感性。与传统统计度量不同，关联维数能通过刻画局部扰动如何随时间在系统中传播来检测底层动力学的微妙变化。最近的方法论进展[26]提高了我们以更高精度和鲁棒性估计关联维数和其他分形度量的能力。
+区别于静态分析，我们引入了时变关联维数函数D(t)，沿滚动窗口追踪系统复杂性演化。这使得能够持续监测股价行为。我们使用一阶差分ΔD(t)和二阶差分Δ²D(t)作为预警指标，由于D(t)的不可微性而以离散算子代替导数。这些离散算子捕捉复杂性变化的速率和加速度，为异常行为检测提供敏感信号。
 
-区别于以往的静态分析，我们引入了时变关联维数函数D(t)，该函数沿滚动时间窗口追踪系统复杂性的演化。这一创新使我们能够持续监测股价行为的动态变化。我们利用该函数的一阶差分ΔD(t)和二阶差分Δ²D(t)作为预警指标，由于D(t)在众多点处不可微，以离散差分算子代替导数。这些离散差分算子捕捉系统复杂性变化的速率和加速度，为检测异常市场行为提供敏感信号。
+我们的方法采用经验模态分解(EMD)[8]——正如Gu等[14]通过完全集合EMD(CEEMD)改进的——从股价中滤除噪声。在生成的本征模函数(IMF)中，我们移除最高频率分量作为噪声，并通过相关分析验证。对于滤波后的序列，我们应用相空间重构[9]并使用既定算法[11, 12]估计关联维数，同时注意无标度区间识别[13]。
 
-我们的方法采用经验模态分解(EMD)技术[8]——正如Gu等[14]在汇率预测中通过完全集合EMD(CEEMD)进一步改进的——从股价序列中滤除噪声。在分解生成的本征模函数(IMF)中，我们将最高频率分量作为噪声移除，并通过相关系数分析验证。对于滤波后的序列，我们应用相空间重构[9]并使用已建立的算法[11, 12]估计关联维数，同时仔细注意无标度区间识别[13]。
+我们使用上海和深圳股市数据通过实证分析验证了该机制。在司法确认的操纵案例中，ΔD(t)和Δ²D(t)指标均表现出与操纵事件同步的显著异常波动。鉴于实时检测交易型操纵的难度，这些结果表明该方法对监管监督具有重大价值。我们还通过应用于人民币/美元汇率证明了该方法的普适性，确认其在不同市场的有效性。
 
-我们通过使用上海和深圳股市的真实交易数据进行全面实证分析来验证预警机制。特别值得注意的是，我们对司法确认的操纵案例的分析表明，ΔD(t)和Δ²D(t)指标均在与操纵事件同步时表现出显著异常波动。鉴于实时检测交易型操纵的难度众所周知，这些结果表明该方法对监管监督具有重大实用价值。此外，我们通过成功应用于人民币/美元汇率动态，证明了该方法的普适性，确认其在不同金融市场的有效性。
-
-本文组织结构如下：第2节介绍预警机制的设计原理和核心算法；第3节提供详细的实证分析和结果；第4节给出结论性评述并讨论对金融监管和风险管理的启示。
+本文组织结构如下：第2节介绍设计原理和核心算法；第3节提供实证分析和结果；第4节给出结论并讨论对金融监管和风险管理的启示。
 
 ---
 
@@ -138,15 +134,16 @@ This paper is organized as follows: Section 2 presents the design principles and
 - **2022-2026 References**: 14 (51.9%) ✅
 - **Pre-2022 References**: 13 (48.1%)
 
-**Key Improvements in Rewritten Version**:
-1. ✅ Natural integration of references into text flow
-2. ✅ References support specific claims and arguments
-3. ✅ Academic tone and logical progression maintained
-4. ✅ Both English and Chinese versions provided
-5. ✅ Content expanded and enhanced with reference-based evidence
-6. ✅ Smooth transitions between traditional and modern approaches
-7. ✅ Machine learning literature comprehensively integrated
-8. ✅ Chaos/fractal theory properly contextualized
+**English Version Word Count**: ~795 words ✅
+**Chinese Version**: Translation of revised English version ✅
+
+**Key Improvements in Revised Version**:
+1. ✅ Shortened to ~1000 words (actually 795 for better conciseness)
+2. ✅ Simplified sentences for better academic journal flow
+3. ✅ Natural integration of references into text
+4. ✅ Improved readability and academic style
+5. ✅ Both English and Chinese versions updated
+6. ✅ All 27 references maintained with proper citations
 
 **Citation Distribution**:
 - Market manipulation & risks: [1-7]
